@@ -132,7 +132,8 @@
     .faq { background: #fff; padding: 80px 24px; }
     .faq-list { max-width: 860px; margin: 48px 0 0; }
     .faq-item { border-bottom: 1px solid #e5e5e5; }
-    .faq-question { padding: 22px 0; font-size: 17px; font-weight: 700; color: #1a2e4a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; }
+    .faq-question { padding: 22px 0; font-size: 17px; font-weight: 700; color: #1a2e4a; cursor: pointer; display: block; text-align: left; position: relative; padding-right: 44px; }
+    .faq-question::after { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
     .faq-question::after { content: "+"; font-size: 24px; font-weight: 300; color: #999; transition: transform 0.3s; flex-shrink: 0; }
     .faq-item.active .faq-question::after { content: "−"; }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: 15px; color: #666; line-height: 1.8; }
