@@ -78,8 +78,29 @@
 
     /* ========== VERGLEICH ========== */
     .vergleich { background: #fff; padding: 80px 24px; }
-    .vergleich-table { max-width: 960px; margin: 48px auto 0; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5e5; }
+    .vergleich-table { max-width: 960px; margin: 48px auto 0; border-radius: 16px; overflow: hidden; border: 1px solid #e5e5e5; box-shadow: 0 18px 50px rgba(0,0,0,0.08); background: #fff; }
     .vergleich { overflow-x: auto; }
+
+    .vergleich-row { display: grid; grid-template-columns: 120px 1fr 1fr; }
+    .vergleich-row.header { background: linear-gradient(180deg, #1a2e4a 0%, #152740 100%); }
+    .vergleich-row:not(.header):nth-child(even) { background: #fafafa; }
+    .vergleich-cell { padding: 22px 22px; font-size: 15px; color: #3a4b5f; border-bottom: 1px solid #eee; }
+    .vergleich-row.header .vergleich-cell { font-weight: 800; color: #fff; font-size: 14px; border-bottom: none; letter-spacing: 0.3px; }
+    .vergleich-cell:last-child { font-weight: 800; color: #fe745c; }
+    .vergleich-row.header .vergleich-cell:last-child { color: #fe745c; }
+
+    .alarm-num { display:inline-flex; align-items:center; justify-content:center; width: 40px; height: 40px; border-radius: 12px; background: rgba(26,46,74,0.06); color:#1a2e4a; font-weight: 900; }
+    .alarm-num-wrap { display:flex; align-items:center; gap: 10px; }
+    .vergleich-cell:first-child { color:#1a2e4a; }
+
+    .letgo-fix { display:inline-flex; align-items:center; gap:10px; }
+    .letgo-fix::before { content:"✓"; width: 22px; height: 22px; border-radius: 7px; display:inline-flex; align-items:center; justify-content:center; background: rgba(254,116,92,0.14); color:#fe745c; font-weight: 900; flex-shrink:0; }
+
+    @media (max-width: 768px) {
+      .vergleich-row { grid-template-columns: 90px 1fr; }
+      .alarm-num { width: 34px; height: 34px; border-radius: 10px; }
+      .vergleich-cell { padding: 18px 14px; }
+    }
     .vergleich-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; }
     .vergleich-row.header { background: #1a2e4a; }
     .vergleich-row:not(.header):nth-child(even) { background: #fafafa; }
@@ -109,9 +130,9 @@
 
     /* ========== FAQ ========== */
     .faq { background: #fff; padding: 80px 24px; }
-    .faq-list { max-width: 860px; margin: 48px auto 0; }
+    .faq-list { max-width: 860px; margin: 48px 0 0; }
     .faq-item { border-bottom: 1px solid #e5e5e5; }
-    .faq-question { padding: 22px 0; font-size: 17px; font-weight: 700; color: #1a2e4a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question { padding: 22px 0; font-size: 17px; font-weight: 700; color: #1a2e4a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; }
     .faq-question::after { content: "+"; font-size: 24px; font-weight: 300; color: #999; transition: transform 0.3s; flex-shrink: 0; }
     .faq-item.active .faq-question::after { content: "−"; }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: 15px; color: #666; line-height: 1.8; }
@@ -241,7 +262,6 @@
         <li><a href="#ablauf">So läuft es</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="https://yourturn.winterfest.academy">YOUR TURN</a></li>
-        <li><a href="#unterstuetzen">Übergeben, ohne Einmischung</a></li>
         <li><a class="nav-cta" href="https://zeeg.me/winterfest/letgo" rel="noopener">Gespräch buchen</a></li>
       </ul>
     </div>
@@ -308,7 +328,7 @@
       <div class="target-inner">
         <div class="target-card">
           <h3><strong>LET GO</strong> passt, wenn …</h3>
-          <div class="role">SIE-FORM · ÜBERGABE</div>
+          <div class="role">Übergabe</div>
           <ul>
             <li>Sie geben in den nächsten 6–24 Monaten ab - oder haben offiziell übergeben, sind innerlich aber noch drin.</li>
             <li>Sie wollen Klarheit, Sprache und Grenzen, die im Alltag gelten.</li>
@@ -345,29 +365,29 @@
         </div>
 
         <div class="vergleich-row" role="row">
-          <div class="vergleich-cell" role="cell">1</div>
+          <div class="vergleich-cell" role="cell"><span class="alarm-num">1</span></div>
           <div class="vergleich-cell" role="cell">Mitarbeitende holen sich das letzte Wort weiter bei Ihnen.</div>
-          <div class="vergleich-cell" role="cell">Kommunikationsregel fürs Team</div>
+          <div class="vergleich-cell" role="cell"><span class="letgo-fix">Kommunikationsregel fürs Team</span></div>
         </div>
         <div class="vergleich-row" role="row">
-          <div class="vergleich-cell" role="cell">2</div>
+          <div class="vergleich-cell" role="cell"><span class="alarm-num">2</span></div>
           <div class="vergleich-cell" role="cell">Sie „korrigieren" Entscheidungen im Hintergrund.</div>
-          <div class="vergleich-cell" role="cell">Eingriffsskala + klare Schwellen</div>
+          <div class="vergleich-cell" role="cell"><span class="letgo-fix">Eingriffsskala + klare Schwellen</span></div>
         </div>
         <div class="vergleich-row" role="row">
-          <div class="vergleich-cell" role="cell">3</div>
+          <div class="vergleich-cell" role="cell"><span class="alarm-num">3</span></div>
           <div class="vergleich-cell" role="cell">Sie werden in Meetings eingeladen, die Ihnen offiziell nicht mehr gehören.</div>
-          <div class="vergleich-cell" role="cell">Rollen-Charta: Was Sie tun - und was nicht</div>
+          <div class="vergleich-cell" role="cell"><span class="letgo-fix">Rollen-Charta: Was Sie tun - und was nicht</span></div>
         </div>
         <div class="vergleich-row" role="row">
-          <div class="vergleich-cell" role="cell">4</div>
+          <div class="vergleich-cell" role="cell"><span class="alarm-num">4</span></div>
           <div class="vergleich-cell" role="cell">Sie spüren Misstrauen, obwohl Sie helfen wollen.</div>
-          <div class="vergleich-cell" role="cell">Sprache, die unterstützt statt entwertet</div>
+          <div class="vergleich-cell" role="cell"><span class="letgo-fix">Sprache, die unterstützt statt entwertet</span></div>
         </div>
         <div class="vergleich-row" role="row">
-          <div class="vergleich-cell" role="cell">5</div>
+          <div class="vergleich-cell" role="cell"><span class="alarm-num">5</span></div>
           <div class="vergleich-cell" role="cell">Zuhause wird es dünnhäutig, sobald es um den Betrieb geht.</div>
-          <div class="vergleich-cell" role="cell">Konflikte führen, ohne privat zu vergiften</div>
+          <div class="vergleich-cell" role="cell"><span class="letgo-fix">Konflikte führen, ohne privat zu vergiften</span></div>
         </div>
       </div>
     </div>
