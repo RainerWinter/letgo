@@ -81,7 +81,10 @@
     .vergleich-table { max-width: 960px; margin: 48px auto 0; border-radius: 16px; overflow: hidden; border: 1px solid #e5e5e5; box-shadow: 0 18px 50px rgba(0,0,0,0.08); background: #fff; }
     .vergleich { overflow-x: auto; }
 
-    .vergleich-row { display: grid; grid-template-columns: 88px 1fr 1fr; }
+    .vergleich-row { display: grid; grid-template-columns: 88px minmax(360px, 1.15fr) 1fr; }
+    .vergleich-row.header .vergleich-cell:nth-child(2){ text-align:center; }
+    .vergleich-row.header .vergleich-cell:nth-child(3){ text-align:center; }
+    .vergleich-row.header .vergleich-cell:nth-child(1){ text-align:left; }
     .vergleich-row.header { background: linear-gradient(180deg, #1a2e4a 0%, #152740 100%); }
     .vergleich-row:not(.header):nth-child(even) { background: #fafafa; }
     .vergleich-cell { padding: 22px 22px; font-size: 15px; color: #3a4b5f; border-bottom: 1px solid #eee; }
